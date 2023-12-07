@@ -7,7 +7,7 @@ class People(BaseResource):
 
     def get(self, id, compute_custom_fields=False):
         if compute_custom_fields:
-            return self.copper.get(f"/people/{id}?compute_custom_fields=true")
+            return self.copper.get(f"/people/{id}?custom_field_computed_values=true")
         else:
             return self.copper.get(f"/people/{id}")
 
