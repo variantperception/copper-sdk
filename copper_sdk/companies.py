@@ -39,12 +39,12 @@ class Companies(BaseResource):
     def relate_to(self, id, relative_type, related_id):
         body = {"resource": {"id": related_id, "type": relative_type}}
 
-        return self.copper.post(f"/companies/{id}/related", json_body=body)
+        return self.copper.post(f"/companies/{id}/related", body)
 
     def unrelate_from(self, id, relative_type, related_id):
         body = {"resource": {"id": related_id, "type": relative_type}}
 
-        return self.copper.delete(f"/companies/{id}/related", json_body=body)
+        return self.copper.delete(f"/companies/{id}/related", body)
 
     def activities(self, id):
         return self.copper.get(f"/companies/{id}/activities")
